@@ -101,5 +101,13 @@ namespace Seminar_Oblak.Services.Implemetation
             await db.SaveChangesAsync();
                
         }
+
+        public async Task DeleteProductCategoryAsync(ProductCategory model)
+        {
+            var category = await db.ProductCategory.FirstOrDefaultAsync(X => X.Id == model.Id);
+            db.ProductCategory.Remove(category);
+            await db.SaveChangesAsync();
+
+        }
     }
 }

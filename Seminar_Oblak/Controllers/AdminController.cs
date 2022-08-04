@@ -26,10 +26,16 @@ namespace Seminar_Oblak.Controllers
             return View("AdministratorControl");
         }
 
-        //public IActionResult PdocutAdmin()
-        //{
-        //    return View("ProductAdministration");
-        //}
+        public IActionResult UserControl()
+        {
+            return View("UserAdministration");
+        }
+
+
+        public IActionResult ProductCategorysAdministration()
+        {
+            return View("ProductCategoryAdministration");
+        }
 
 
         public async Task<IActionResult> GetAllProducts()
@@ -38,11 +44,24 @@ namespace Seminar_Oblak.Controllers
             return View(products);
         }
 
+        public async Task<IActionResult> GetAllProductCategorys()
+        {
+            var category = await productService.GetProductCategorysAsync();
+            return View(category);
+        }
+
 
         [HttpGet]
         public async Task<IActionResult> ProductAdministration()
         {
             var products = await productService.GetProductsAsync();
+            return View(products);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ProductCategoryAdministration()
+        {
+            var products = await productService.GetProductCategorysAsync();
             return View(products);
         }
 
@@ -60,6 +79,21 @@ namespace Seminar_Oblak.Controllers
         {
             var product = await productService.UpdateProductAsync(model);
             return RedirectToAction("ProductAdministration");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> UpdateCategory(int id)
+        {
+            var category = await productService.GetProductCategoryAsync(id);
+            var model = mapper.Map<ProductCategoryUpdateBinding>(category);
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateCategory(ProductCategoryUpdateBinding model)
+        {
+            var category = await productService.UpdateProductCategoryAsync(model);
+            return RedirectToAction("ProductCategoryAdministration");
         }
 
         [HttpGet]
@@ -84,7 +118,7 @@ namespace Seminar_Oblak.Controllers
         public async Task<IActionResult> AddProductCategory(ProductCategoryBinding model)
         {
             await productService.AddProductCategoryAsync(model);
-            return RedirectToAction("ProductAdministration");
+            return RedirectToAction("ProductCategoryAdministration");
         }
 
         public async Task<IActionResult> DeleteProduct(int id)
@@ -94,7 +128,7 @@ namespace Seminar_Oblak.Controllers
             return View(model);
         }
 
-        [HttpPost, ActionName("DeleteProduct")]       
+        [HttpPost, ActionName("DeleteProduct")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await productService.GetProductAsync(id);
@@ -103,10 +137,33 @@ namespace Seminar_Oblak.Controllers
             return RedirectToAction("ProductAdministration");
         }
 
+        public async Task<IActionResult> DeleteProductCategory(int id)
+        {
+            var category = await productService.GetProductCategoryAsync(id);
+            var model = mapper.Map<ProductCategory>(category);
+            return View(model);
+        }
+
+        [HttpPost, ActionName("DeleteProductCategory")]
+        public async Task<IActionResult> DeleteConfirmedCategory(int id)
+        {
+            var category = await productService.GetProductCategoryAsync(id);
+            var model = mapper.Map<ProductCategory>(category);
+            await productService.DeleteProductCategoryAsync(model);
+            return RedirectToAction("ProductCategoryAdministration");
+        }
+
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
             var product = await productService.GetProductAsync(id);
+            return View(product);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CategoryDetails(int id)
+        {
+            var product = await productService.GetProductCategoryAsync(id);
             return View(product);
         }
     }

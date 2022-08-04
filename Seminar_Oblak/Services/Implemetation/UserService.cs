@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using Seminar_Oblak.Data;
 using Seminar_Oblak.Models.Binding;
 using Seminar_Oblak.Models.Dbo;
+using Seminar_Oblak.Models.ViewModel;
 using Seminar_Oblak.Services.Interface;
 
 namespace Seminar_Oblak.Services.Implemetation
@@ -48,6 +49,36 @@ namespace Seminar_Oblak.Services.Implemetation
                 }
             }
             return user;
+        }
+
+        //public async Task<ProductViewModel> AddUserAsync(UserBinding model)
+        //{
+        //    var dbo = mapper.Map<Product>(model);
+        //    var productCategory = await db.ProductCategory.FindAsync(model.ProductCategoryId);
+        //    if (productCategory == null)
+        //    {
+        //        return null;
+        //    }
+        //    dbo.ProductCategory = productCategory;
+        //    db.Product.Add(dbo);
+        //    await db.SaveChangesAsync();
+        //    return mapper.Map<ProductViewModel>(dbo);
+        //}
+
+        public async Task<List<ApplicationUserViewModel>> GetUsersAsync()
+        {
+            var dbo =  db.ApplicationUser.ToList();
+            return dbo.Select(x => mapper.Map<ApplicationUserViewModel>(x)).ToList();
+
+        }
+
+        public async Task<List<ProductViewModel>> GetProductsAsync()
+        {
+            var dbo = await db.Product
+                .Include(x => x.ProductCategory)
+                .ToListAsync();
+            return dbo.Select(x => mapper.Map<ProductViewModel>(x)).ToList();
+
         }
     }
 }

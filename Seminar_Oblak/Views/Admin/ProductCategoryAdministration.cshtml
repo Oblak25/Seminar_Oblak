@@ -1,5 +1,5 @@
-﻿@using Seminar_Oblak.Models.ViewModel
-@model List<ProductCategoryViewModel>
+﻿@model IEnumerable<Seminar_Oblak.Models.ViewModel.ProductCategoryViewModel>
+
 @{
     int counter = 1;
 }
@@ -14,8 +14,8 @@
             <th scope="col">#</th>
             <th scope="col">Title</th>
             <th scope="col">Description</th>
-         
-          
+           
+
         </tr>
     </thead>
     <tbody>
@@ -26,9 +26,11 @@
                 <th scope="row">@counter</th>
                 <td>@product.Title</td>
                 <td>@product.Description</td>              
-                <td> @Html.ActionLink("View","Details","Admin",new {id= product.Id},new {@class = "btn btn-primary"})
-                @Html.ActionLink("Edit","UpdateProduct","Admin",new {id= product.Id},new {@class = "btn btn-primary"})
-                 @Html.ActionLink("Delete","DeleteProduct","Admin",new {id= product.Id},new {@class = "btn btn-primary"})<td/>
+                <td>
+                    @Html.ActionLink("View","CategoryDetails","Admin",new {id= product.Id},new {@class = "btn btn-primary"})
+                    @Html.ActionLink("Edit","UpdateCategory","Admin",new {id= product.Id},new {@class = "btn btn-primary"})
+                    @Html.ActionLink("Delete","DeleteProductCategory","Admin",new {id= product.Id},new {@class = "btn btn-primary"})
+                <td />
             </tr>
             counter++;
         }
@@ -40,4 +42,7 @@
 
 
 <a class="btn btn-primary" href="@Url.Action("AddProduct", "Admin")">Dodaj novi proizvod</a>
+
+
+
 <a class="btn btn-primary" href="@Url.Action("AddProductCategory", "Admin")">Dodaj novu kategoriju</a>

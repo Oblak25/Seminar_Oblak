@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Seminar_Oblak.Models.Dbo;
 using Seminar_Oblak.Models.ViewModel;
+using Seminar_Oblak.Models.Binding;
 
 namespace Seminar_Oblak.Data
 {
@@ -17,5 +18,7 @@ namespace Seminar_Oblak.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<ProductCategory> ProductCategory { get; set; }
         public DbSet<Seminar_Oblak.Models.ViewModel.ProductViewModel>? ProductViewModel { get; set; }
+        public DbSet<Seminar_Oblak.Models.ViewModel.ProductCategoryViewModel>? ProductCategoryViewModel { get; set; }
+        public DbSet<Seminar_Oblak.Models.Binding.ProductCategoryUpdateBinding>? ProductCategoryUpdateBinding { get; set; }
     }
 }

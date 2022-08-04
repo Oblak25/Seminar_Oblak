@@ -26,6 +26,9 @@ namespace Seminar_Oblak.Mapping
             CreateMap<ProductCategory, ProductCategoryViewModel>();
             CreateMap<ProductCategoryUpdateBinding, ProductCategory>();
             CreateMap<ProductCategoryViewModel, ProductCategory>();
+            CreateMap<ProductCategoryViewModel, ProductCategoryUpdateBinding>();
+
+           
 
             //CreateMap<ProductUpdateApiBinding, Product>();
 

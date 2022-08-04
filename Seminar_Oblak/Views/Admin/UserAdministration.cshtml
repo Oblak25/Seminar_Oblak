@@ -1,0 +1,61 @@
+﻿@using Seminar_Oblak.Models.Dbo
+@using Seminar_Oblak.Models.ViewModel
+@using Microsoft.AspNetCore.Identity
+@model List<ApplicationUserViewModel>
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+      var users = await UserManager.GetUserAsync(User);
+    int counter = 1;
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+    <a asp-action="AdministratorControl">Go Back </a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Adress</th>
+            <th scope="col">Email</th>
+           
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var user in Model)
+        {
+            <tr>
+                <th scope="row">@counter</th>
+                <td>@user.Id</td>
+                <td>@user.Firstname</td>
+                <td>@user.Lastname</td>
+                <td>@user.Adress</td>
+              
+                  <td>@users.Email</td>
+                <td>
+                    @Html.ActionLink("View","CategoryDetails","Admin",new {id= user.Id},new {@class = "btn btn-primary"})
+                    @Html.ActionLink("Edit","UpdateCategory","Admin",new {id= user.Id},new {@class = "btn btn-primary"})
+                    @Html.ActionLink("Delete","DeleteCategory","Admin",new {id= user.Id},new {@class = "btn btn-primary"})
+                <td />
+            </tr>
+            counter++;
+        }
+
+
+
+    </tbody>
+</table>
+
+
+<a class="btn btn-primary" href="@Url.Action("AddProduct", "Admin")">Dodaj novi proizvod</a>
+
+
+
+<a class="btn btn-primary" href="@Url.Action("AddProductCategory", "Admin")">Dodaj novu kategoriju</a>

@@ -15,6 +15,7 @@ namespace Seminar_Oblak.Services.Interface
         Task<ProductViewModel> UpdateProductAsync(ProductUpdateBinding model);
         Task<ProductCategoryViewModel> UpdateProductCategoryAsync(ProductCategoryUpdateBinding model);
         Task DeleteProductAsync(Product model);
+        Task DeleteProductCategoryAsync(ProductCategory model);
 
     }
 }
