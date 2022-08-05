@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Seminar_Oblak.Data;
 using Seminar_Oblak.Models.Binding;
@@ -67,18 +68,40 @@ namespace Seminar_Oblak.Services.Implemetation
 
         public async Task<List<ApplicationUserViewModel>> GetUsersAsync()
         {
-            var dbo =  db.ApplicationUser.ToList();
+            var dbo = await db.Users
+                .Include(x => x.Adress)
+                .ToListAsync();
             return dbo.Select(x => mapper.Map<ApplicationUserViewModel>(x)).ToList();
 
         }
 
-        public async Task<List<ProductViewModel>> GetProductsAsync()
-        {
-            var dbo = await db.Product
-                .Include(x => x.ProductCategory)
-                .ToListAsync();
-            return dbo.Select(x => mapper.Map<ProductViewModel>(x)).ToList();
+        //public async Task<List<ApplicationUserViewModel>> GetUsersAsync()
+        //{
+        //    var dbo = db.ApplicationUser.ToList();
+        //    return dbo.Select(x => mapper.Map<ApplicationUserViewModel>(x)).ToList();
 
+        //}
+
+        public async Task<ApplicationUser> CreateNewUserAsync(UserBinding model, string role)
+        {
+            var findUserByEmail = await userManager.FindByEmailAsync(model.Email);
+            if (findUserByEmail != null)
+            {
+                throw new Exception("ASccount Already Exists");
+            }
+            var user = mapper.Map<ApplicationUser>(model);
+            var createUser = await userManager.CreateAsync(user, model.Password);
+            if (!createUser.Succeeded) return user;
+
+            var assignRole = await userManager.AddToRoleAsync(user, role);
+            if (!assignRole.Succeeded)
+            {
+                throw new Exception("Role Error ");
+            }
+
+            return user;
         }
+
+
     }
 }

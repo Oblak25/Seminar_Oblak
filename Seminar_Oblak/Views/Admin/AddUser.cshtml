@@ -1,0 +1,58 @@
+﻿@using Seminar_Oblak.Models.Binding
+@using Seminar_Oblak.Services.Interface;
+@model UserBinding
+
+
+@{
+   
+}
+
+@using (Html.BeginForm())
+{
+
+    <div class="form-group">
+        @Html.LabelFor(x=>x.Firstname)
+        @Html.TextBoxFor(x=> x.Firstname, new {@class = "form-control",  placeholder=" Enter Product Name " })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x=>x.Lastname)
+        @Html.TextBoxFor(x=> x.Lastname, new {@class = "form-control",  placeholder=" Enter Product Descr. "  })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x=>x.Email)
+        @Html.TextBoxFor(x=> x.Email, new {@class = "form-control",   placeholder=" Enter Amount " })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x=>x.Password)
+        @Html.TextBoxFor(x=> x.Password, new {@class = "form-control",   placeholder=" Enter Amount " })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x=>x.DOB)
+        @Html.TextBoxFor(x=> x.DOB, new {@class = "form-control",   placeholder=" Enter Amount " })
+    </div>
+   
+    <div class="form-group">
+        @Html.LabelFor(x=>x.UserAdress.Country)
+        @Html.TextBoxFor(x=> x.UserAdress.Country, new {@class = "form-control",   placeholder=" Enter Price  " })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x=>x.UserAdress.City)
+        @Html.TextBoxFor(x=> x.UserAdress.City, new {@class = "form-control",   placeholder=" Enter Price  " })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x=>x.UserAdress.Street)
+        @Html.TextBoxFor(x=> x.UserAdress.Street, new {@class = "form-control",   placeholder=" Enter Price  " })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x=>x.UserAdress.PostalCode)
+        @Html.TextBoxFor(x=> x.UserAdress.PostalCode, new {@class = "form-control",   placeholder=" Enter Price  " })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x=>x.UserAdress.HouseNumbering)
+        @Html.TextBoxFor(x=> x.UserAdress.HouseNumbering, new {@class = "form-control",   placeholder=" Enter Price  " })
+    </div>
+
+    <input type="submit" class="btn btn-primary mt-5" value="Apply">
+}
+

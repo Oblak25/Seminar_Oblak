@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Seminar_Oblak.Models;
 using Seminar_Oblak.Models.Binding;
 using Seminar_Oblak.Models.Dbo;
+using Seminar_Oblak.Models.ViewModel;
 using Seminar_Oblak.Services.Interface;
 
 namespace Seminar_Oblak.Controllers
@@ -14,11 +16,15 @@ namespace Seminar_Oblak.Controllers
     {
         private readonly IProductService productService;
         private readonly IMapper mapper;
+        private readonly IUserSevice userService;
+        private readonly SignInManager<ApplicationUser> signInManager;
 
-        public AdminController(IProductService productService, IMapper mapper)
+        public AdminController(IProductService productService, IMapper mapper, IUserSevice userService, SignInManager<ApplicationUser> signInManager)
         {
             this.productService = productService;
             this.mapper = mapper;
+            this.userService = userService;
+            this.signInManager = signInManager;
         }
 
         public IActionResult AdministratorControl()
@@ -165,6 +171,25 @@ namespace Seminar_Oblak.Controllers
         {
             var product = await productService.GetProductCategoryAsync(id);
             return View(product);
+        }
+
+        public async Task<IActionResult> UserAdministration()
+        {
+            var users = await userService.GetUsersAsync();
+            return View(users);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> AddUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddUser(UserBinding model, string role)
+        {
+            await userService.CreateNewUserAsync(model, "BasicUser");
+            return RedirectToAction("UserAdministration");
         }
     }
 }

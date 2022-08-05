@@ -1,6 +1,6 @@
 ﻿namespace Seminar_Oblak.Models
 {
-    public static class Roles
+    public class Roles
     {
 
         public const string Admin = "Admin";

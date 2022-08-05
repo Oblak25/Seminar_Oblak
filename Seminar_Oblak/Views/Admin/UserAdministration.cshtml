@@ -1,18 +1,21 @@
 ﻿@using Seminar_Oblak.Models.Dbo
 @using Seminar_Oblak.Models.ViewModel
 @using Microsoft.AspNetCore.Identity
+@using Seminar_Oblak.Services.Interface
 @model List<ApplicationUserViewModel>
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@inject RoleManager<IdentityRole> RoleManager
+@inject IUserSevice UserSevice
 
 
 @{
-      var users = await UserManager.GetUserAsync(User);
+    var userss = await UserSevice.GetUsersAsync();
     int counter = 1;
 }
 
 <p>
-    <a asp-action="Create">Create New</a>
+  
     <a asp-action="AdministratorControl">Go Back </a>
 </p>
 <table class="table table-striped">
@@ -20,10 +23,10 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Adress</th>
+            <th scope="col">Last Name</th>  
             <th scope="col">Email</th>
-           
+            <th scope="col">Active</th>
+
 
         </tr>
     </thead>
@@ -33,12 +36,24 @@
         {
             <tr>
                 <th scope="row">@counter</th>
-                <td>@user.Id</td>
                 <td>@user.Firstname</td>
                 <td>@user.Lastname</td>
-                <td>@user.Adress</td>
-              
-                  <td>@users.Email</td>
+                <td>@user.Email</td>
+                <td>@user.EmailConfirmed</td>
+                 <td>Adres</td>
+
+                <td>@foreach (var adress in user.Adress)
+                {
+                    @adress.Country 
+                       @adress.City 
+                       <br />
+                          @adress.Street 
+                             @adress.PostalCode 
+                                @adress.HouseNumbering
+                   @* @Html.DisplayFor(modelItem => adress.City)*@
+                }
+                </td>
+
                 <td>
                     @Html.ActionLink("View","CategoryDetails","Admin",new {id= user.Id},new {@class = "btn btn-primary"})
                     @Html.ActionLink("Edit","UpdateCategory","Admin",new {id= user.Id},new {@class = "btn btn-primary"})
@@ -54,8 +69,7 @@
 </table>
 
 
-<a class="btn btn-primary" href="@Url.Action("AddProduct", "Admin")">Dodaj novi proizvod</a>
+<a class="btn btn-primary" href="@Url.Action("AddUser", "Admin")">Add a new user</a>
 
 
 
-<a class="btn btn-primary" href="@Url.Action("AddProductCategory", "Admin")">Dodaj novu kategoriju</a>

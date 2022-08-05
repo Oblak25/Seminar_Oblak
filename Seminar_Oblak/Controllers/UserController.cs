@@ -11,6 +11,8 @@ namespace Seminar_Oblak.Controllers
     {
         private readonly IUserSevice userSevice;
         private readonly SignInManager<ApplicationUser> signInManager;
+       
+        
         public UserController(IUserSevice userSevice, SignInManager<ApplicationUser> signInManager)
         {
             this.userSevice = userSevice;
