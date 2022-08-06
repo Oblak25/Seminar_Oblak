@@ -95,15 +95,7 @@ namespace Seminar_Oblak.Services.Implemetation
 
         }
 
-        //public async Task<ProductViewModel> UpdateProductAsync(ProductUpdateBinding model)
-        //{
-        //    var category = await db.ProductCategory.FirstOrDefaultAsync(x => x.Id == model.ProductCategoryId);
-        //    var dbo = await db.Product.FindAsync(model.Id);
-        //    mapper.Map(model, dbo);
-        //    dbo.ProductCategory = category;
-        //    await db.SaveChangesAsync();
-        //    return mapper.Map<ProductViewModel>(dbo);
-        //}
+      
 
         public async Task<ProductViewModel> UpdateProductAsync(ProductUpdateBinding model)
         {

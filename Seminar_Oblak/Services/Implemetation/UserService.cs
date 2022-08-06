@@ -73,13 +73,7 @@ namespace Seminar_Oblak.Services.Implemetation
             return dbo.Select(x => mapper.Map<ApplicationUserViewModel>(x)).ToList();
 
         }
-
-        //public async Task<List<ApplicationUserViewModel>> GetUsersAsync()
-        //{
-        //    var dbo = db.ApplicationUser.ToList();
-        //    return dbo.Select(x => mapper.Map<ApplicationUserViewModel>(x)).ToList();
-
-        //}
+      
 
         public async Task<ApplicationUser> CreateNewUserAsync(UserBinding model, string role)
         {
@@ -128,7 +122,7 @@ namespace Seminar_Oblak.Services.Implemetation
             user.Firstname = model.Firstname;
             user.Lastname = model.Lastname;
             user.Email = model.Email ;
-            user.UserName = model.Email ?? user.UserName;
+            user.UserName = model.Email;
             user.DOB = model.DOB;
             user.NormalizedEmail = model.Email.ToUpper();
             user.NormalizedUserName = model.Email.ToUpper();
