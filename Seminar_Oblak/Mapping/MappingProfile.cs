@@ -17,7 +17,6 @@ namespace Seminar_Oblak.Mapping
             CreateMap<ProductUpdateBinding, Product>();
             CreateMap<ProductUpdateBinding, ProductViewModel>();
 
-
             //CreateMap<ProductViewModel, Product>();
             //CreateMap<ProductViewModel, ProductCategory>();
             //CreateMap<ProductUpdateBinding, ProductViewModel>();
@@ -27,17 +26,19 @@ namespace Seminar_Oblak.Mapping
             CreateMap<ProductCategoryUpdateBinding, ProductCategory>();
             CreateMap<ProductCategoryViewModel, ProductCategory>();
             CreateMap<ProductCategoryViewModel, ProductCategoryUpdateBinding>();
-
            
-
             //CreateMap<ProductUpdateApiBinding, Product>();
-
             CreateMap<ApplicationUser, ApplicationUserViewModel>();
             CreateMap<AdressBinding, Adress>();
             CreateMap<Adress, AdressViewModel>();
             CreateMap<UserBinding, ApplicationUser>()
                 .ForMember(dst => dst.UserName, opts => opts.MapFrom(src => src.Email))
                 .ForMember(dst => dst.EmailConfirmed, opts => opts.MapFrom(src => true));
+
+            CreateMap<FileStorage, FileStorageViewModel>();
+            CreateMap<FileStorage, FileStorageExpendedViewModel>();
+            CreateMap<FileStorageViewModel, FileStorage>().
+                ForMember(dst => dst.Id, opts => opts.Ignore());
         }
 
     }

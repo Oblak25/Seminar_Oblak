@@ -17,8 +17,12 @@ namespace Seminar_Oblak.Data
         public DbSet<Adress> Adress { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<ProductCategory> ProductCategory { get; set; }
+        public DbSet<FileStorage> FileStorage { get; set; }
         public DbSet<Seminar_Oblak.Models.ViewModel.ProductViewModel>? ProductViewModel { get; set; }
         public DbSet<Seminar_Oblak.Models.ViewModel.ProductCategoryViewModel>? ProductCategoryViewModel { get; set; }
-        public DbSet<Seminar_Oblak.Models.Binding.ProductCategoryUpdateBinding>? ProductCategoryUpdateBinding { get; set; }
+
+        //public DbSet<Seminar_Oblak.Models.ViewModel.ProductViewModel>? ProductViewModel { get; set; }
+        //public DbSet<Seminar_Oblak.Models.ViewModel.ProductCategoryViewModel>? ProductCategoryViewModel { get; set; }
+        //public DbSet<Seminar_Oblak.Models.Binding.ProductCategoryUpdateBinding>? ProductCategoryUpdateBinding { get; set; }
     }
 }

@@ -1,0 +1,30 @@
+﻿@model Seminar_Oblak.Models.ViewModel.ProductCategoryViewModel
+
+@{
+    ViewData["Title"] = "CategoryDetails";
+}
+
+<h1>Category Details</h1>
+
+<div>
+   
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>
+<div>     
+<a class="btn btn-primary" href="@Url.Action("Index", "Home")">Back To Home Page</a>
+<a class="btn btn-primary" href="@Url.Action("Categories", "Home")">Back To Categories</a>
+</div>

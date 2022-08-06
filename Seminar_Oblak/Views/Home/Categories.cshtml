@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Seminar_Oblak.Models.ViewModel.ProductCategoryViewModel>
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h1>Categories</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-action="CategoryDetails" class="btn btn-success" asp-route-id="@item.Id">View</a> 
+                
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<a class="btn btn-primary" href="@Url.Action("Index", "Home")">Back To Home Page</a>
+

@@ -1,26 +1,40 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Seminar_Oblak.Models;
+using Seminar_Oblak.Services.Interface;
 using System.Diagnostics;
 
 namespace Seminar_Oblak.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IProductService productService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IProductService productService)
         {
-            _logger = logger;
+            this.productService = productService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(productService.GetProductsAsync().Result);
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Details(int id)
         {
-            return View();
+            var product = await productService.GetProductAsync(id);
+            return View(product);
+        }
+
+        public IActionResult Categories()
+        {
+            return View(productService.GetProductCategorysAsync().Result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CategoryDetails(int id)
+        {
+            var product = await productService.GetProductCategoryAsync(id);
+            return View(product);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

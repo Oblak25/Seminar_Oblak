@@ -9,5 +9,8 @@ namespace Seminar_Oblak.Services.Interface
         Task<ApplicationUser?> CreateUserAsync(UserBinding model, string role);
         Task<List<ApplicationUserViewModel>> GetUsersAsync();
         Task<ApplicationUser> CreateNewUserAsync(UserBinding model, string role);
+        Task<ApplicationUserViewModel> GetUserAsync(string id);
+        Task DeleteUserAsync(ApplicationUser model);
+
     }
 }

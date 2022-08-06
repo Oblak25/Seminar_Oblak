@@ -191,5 +191,29 @@ namespace Seminar_Oblak.Controllers
             await userService.CreateNewUserAsync(model, "BasicUser");
             return RedirectToAction("UserAdministration");
         }
+
+        public async Task<IActionResult> UserDetails(string id)
+        {
+            var user = await userService.GetUserAsync(id);
+            return View(user);
+        }
+
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            var user = await userService.GetUserAsync(id);
+            var model = mapper.Map<ApplicationUser>(user);
+            return View(model);
+        }
+
+        [HttpPost, ActionName("DeleteUser")]
+        public async Task<IActionResult> DeleteUserConfirmed(string id)
+        {
+            var user = await userService.GetUserAsync(id);
+            var model = mapper.Map<ApplicationUser>(user);
+
+            await userService.DeleteUserAsync(model);
+
+            return RedirectToAction("UserAdministration");
+        }
     }
 }

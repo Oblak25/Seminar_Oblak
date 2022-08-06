@@ -5,6 +5,7 @@ using Microsoft.Extensions.Options;
 using Seminar_Oblak.Data;
 using Seminar_Oblak.Models.Binding;
 using Seminar_Oblak.Models.Dbo;
+using Seminar_Oblak.Models.Models.Binding;
 using Seminar_Oblak.Models.ViewModel;
 using Seminar_Oblak.Services.Interface;
 
@@ -69,7 +70,7 @@ namespace Seminar_Oblak.Services.Implemetation
         public async Task<List<ApplicationUserViewModel>> GetUsersAsync()
         {
             var dbo = await db.Users
-                .Include(x => x.Adress)
+                .Include(x => x.Adress)                
                 .ToListAsync();
             return dbo.Select(x => mapper.Map<ApplicationUserViewModel>(x)).ToList();
 
@@ -101,6 +102,26 @@ namespace Seminar_Oblak.Services.Implemetation
 
             return user;
         }
+
+        public async Task<ApplicationUserViewModel> GetUserAsync(string id)
+        {
+            var user = await db.ApplicationUser
+                .Include(x => x.Adress)
+                .FirstOrDefaultAsync(x => x.Id == id);
+            return mapper.Map<ApplicationUserViewModel>(user);
+        }
+
+        public async Task DeleteUserAsync(ApplicationUser model)
+        {
+            var user = await db.ApplicationUser.FirstOrDefaultAsync(x => x.Id == model.Id);
+            if (user != null)
+            {
+                db.ApplicationUser.Remove(user);
+            }
+            await db.SaveChangesAsync();
+        }
+
+
 
 
     }
