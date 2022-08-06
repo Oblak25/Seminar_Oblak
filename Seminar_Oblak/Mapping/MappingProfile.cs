@@ -2,6 +2,7 @@
 using Seminar_Oblak.Models.Dbo;
 using Seminar_Oblak.Models.ViewModel;
 using AutoMapper;
+using Seminar_Oblak.Models.Models.Binding;
 
 namespace Seminar_Oblak.Mapping
 {
@@ -26,11 +27,11 @@ namespace Seminar_Oblak.Mapping
             CreateMap<ProductCategoryUpdateBinding, ProductCategory>();
             CreateMap<ProductCategoryViewModel, ProductCategory>();
             CreateMap<ProductCategoryViewModel, ProductCategoryUpdateBinding>();
-           
+
             //CreateMap<ProductUpdateApiBinding, Product>();
+
+            CreateMap<ApplicationUserViewModel, ApplicationUserUpdateBinding>();
             CreateMap<ApplicationUser, ApplicationUserViewModel>();
-            CreateMap<AdressBinding, Adress>();
-            CreateMap<Adress, AdressViewModel>();
             CreateMap<UserBinding, ApplicationUser>()
                 .ForMember(dst => dst.UserName, opts => opts.MapFrom(src => src.Email))
                 .ForMember(dst => dst.EmailConfirmed, opts => opts.MapFrom(src => true));

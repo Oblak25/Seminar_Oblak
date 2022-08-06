@@ -25,6 +25,9 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IUserSevice, UserSevice>();
 builder.Services.AddScoped<IFileStorageService, FileStorageService>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddOpenApiDocument();
+
 
 
 
@@ -44,6 +47,10 @@ else
 }
 
 app.Services.GetService<IIdentityService>();
+
+app.UseOpenApi(); 
+app.UseSwaggerUi3(); 
+app.UseReDoc();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

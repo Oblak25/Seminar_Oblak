@@ -4,10 +4,10 @@
     ViewData["Title"] = "CategoryDetails";
 }
 
-<h1>CategoryDetails</h1>
+<h1>Category Details</h1>
 
 <div>
-    <h4>ProductCategoryViewModel</h4>
+   
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -25,6 +25,7 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+   
+     <a asp-action="UpdateCategory" class="btn btn-primary" asp-route-id="@Model?.Id">Edit</a> 
+    <a asp-action="ProductCategoryAdministration" class="btn btn-primary">Back to Categories</a>
 </div>

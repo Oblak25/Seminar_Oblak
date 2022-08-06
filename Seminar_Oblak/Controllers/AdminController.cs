@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Seminar_Oblak.Models;
 using Seminar_Oblak.Models.Binding;
 using Seminar_Oblak.Models.Dbo;
+using Seminar_Oblak.Models.Models.Binding;
 using Seminar_Oblak.Models.ViewModel;
 using Seminar_Oblak.Services.Interface;
 
@@ -215,5 +216,21 @@ namespace Seminar_Oblak.Controllers
 
             return RedirectToAction("UserAdministration");
         }
+
+        public async Task<IActionResult> UpdateUser(string id)
+        {
+            var user = await userService.GetUserAsync(id);
+            var model = mapper.Map<ApplicationUserUpdateBinding>(user);
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateUser(ApplicationUserUpdateBinding model)
+        {
+            var user = await userService.UpdateUserAsync(model);
+            return RedirectToAction("UserAdministration");
+        }
+
+
     }
 }

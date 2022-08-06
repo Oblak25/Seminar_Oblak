@@ -34,17 +34,7 @@ namespace Seminar_Oblak.Services.Implemetation
                     UserName = "admin@admin.com",
                     DOB = DateTime.Now.AddYears(-80),
                     PhoneNumber = "+385996666666",
-                    Adress = new List<Adress>
-                    {
-                        new Adress
-                        {
-                            Country="Universe",
-                            City = "Earth",
-                            Street = "Heaven",
-                            PostalCode=10000,
-                            HouseNumbering=1
-                        }
-                    }
+                  
 
                 }, "Pa$$word321", Roles.Admin).Wait();
 
@@ -56,17 +46,7 @@ namespace Seminar_Oblak.Services.Implemetation
                     UserName = "pero@pero.com",
                     DOB = DateTime.Now.AddYears(-20),
                     PhoneNumber = "+3859912685678",
-                    Adress = new List<Adress>
-                    {
-                        new Adress
-                        {
-                            Country="Croatia",
-                            City = "Zagreb",
-                            Street = "Whatever",
-                            PostalCode=10000,
-                            HouseNumbering=15
-                        }
-                    }
+                  
 
                 }, "Pa$$word321", Roles.BasicUser).Wait();
 
@@ -78,17 +58,7 @@ namespace Seminar_Oblak.Services.Implemetation
                     UserName = "marko@marko.hr",
                     DOB = DateTime.Now.AddYears(-35),
                     PhoneNumber = "+3859989345278",
-                    Adress = new List<Adress>
-                    {
-                        new Adress
-                        {
-                            Country="Croatia",
-                            City = "Pozega",
-                            Street = "Zmajska",
-                            PostalCode=34000,
-                            HouseNumbering=6
-                        }
-                    }
+                  
 
                 }, "Pa$$w0rd", Roles.BasicUser).Wait();
             }

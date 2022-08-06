@@ -37,26 +37,7 @@
                 <input asp-for="Lastname" class="form-control" />
                 <span asp-validation-for="Lastname" class="text-danger"></span>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(x=>x.UserAdress.Country, new {@class = "control-label"})
-                @Html.TextBoxFor(x=>x.UserAdress.Country, new {@class = "form-control"})
-            </div> <div class="form-group">
-                @Html.LabelFor(x=>x.UserAdress.City, new {@class = "control-label"})
-                @Html.TextBoxFor(x=>x.UserAdress.City, new {@class = "form-control"})
-            </div> <div class="form-group">
-                @Html.LabelFor(x=>x.UserAdress.PostalCode, new {@class = "control-label"})
-                @Html.TextBoxFor(x=>x.UserAdress.PostalCode, new {@class = "form-control"})
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(x=>x.UserAdress.Street, new {@class = "control-label"})
-                @Html.TextBoxFor(x=>x.UserAdress.Street, new {@class = "form-control"})
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(x=>x.UserAdress.HouseNumbering, new {@class = "control-label"})
-                @Html.TextBoxFor(x=>x.UserAdress.HouseNumbering, new {@class = "form-control"})
-            </div>
-           
+                     
             <div class="form-group">
                 <label asp-for="DOB" class="control-label"></label>
                 <input asp-for="DOB" class="form-control" />

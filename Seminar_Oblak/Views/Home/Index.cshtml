@@ -4,7 +4,7 @@
     int counter = 1;
 }
 
-<table class="table table-striped">
+@*<table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">Name</th>
@@ -15,7 +15,7 @@
     </thead>
     <tbody>
 
-        @foreach (var product in Model)
+        @foreach (var product in Model.OrderBy(x=> Guid.NewGuid()))
         {
             <tr>
                 <td>@product.Title</td>
@@ -43,4 +43,15 @@
 
     </tbody>
 </table>
-<a class="btn btn-primary" href="@Url.Action("Categories", "Home")">See Categories</a>
+<a class="btn btn-primary" href="@Url.Action("Categories", "Home")">See Categories</a> *@
+ @foreach (var product in Model.OrderBy(x=> Guid.NewGuid()))
+        {
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="@product.ProductImgUrl" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Product: @product.Title</h5>
+    <p class="card-text">Description: @product.Description</p>
+    <a href="@Url.Action("Details", "Home",new {id = product.Id})" class="btn btn-primary">Details</a>
+  </div>
+</div>
+        }

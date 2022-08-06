@@ -39,8 +39,7 @@ namespace Seminar_Oblak.Services.Implemetation
                 return null;
             }
             var user = mapper.Map<ApplicationUser>(model);
-            var adress = mapper.Map<Adress>(model.UserAdress);
-            user.Adress = new List<Adress>() { adress };
+          
             var createdUser = await userManager.CreateAsync(user, model.Password);
             if (createdUser.Succeeded)
             {
@@ -69,8 +68,7 @@ namespace Seminar_Oblak.Services.Implemetation
 
         public async Task<List<ApplicationUserViewModel>> GetUsersAsync()
         {
-            var dbo = await db.Users
-                .Include(x => x.Adress)                
+            var dbo = await db.Users                  
                 .ToListAsync();
             return dbo.Select(x => mapper.Map<ApplicationUserViewModel>(x)).ToList();
 
@@ -105,20 +103,40 @@ namespace Seminar_Oblak.Services.Implemetation
 
         public async Task<ApplicationUserViewModel> GetUserAsync(string id)
         {
-            var user = await db.ApplicationUser
-                .Include(x => x.Adress)
+            var user = await db.ApplicationUser             
                 .FirstOrDefaultAsync(x => x.Id == id);
             return mapper.Map<ApplicationUserViewModel>(user);
         }
 
+       
         public async Task DeleteUserAsync(ApplicationUser model)
         {
-            var user = await db.ApplicationUser.FirstOrDefaultAsync(x => x.Id == model.Id);
+            var user = await db.Users.FirstOrDefaultAsync(X => X.Id == model.Id);
             if (user != null)
             {
                 db.ApplicationUser.Remove(user);
-            }
+            }         
             await db.SaveChangesAsync();
+
+        }
+
+        public async Task<ApplicationUserViewModel> UpdateUserAsync(ApplicationUserUpdateBinding model)
+        {
+            var user = await db.ApplicationUser.FirstOrDefaultAsync(x => x.Id == model.Id);
+            var hasher = new PasswordHasher<ApplicationUser?>();
+
+            user.Firstname = model.Firstname;
+            user.Lastname = model.Lastname;
+            user.Email = model.Email ;
+            user.UserName = model.Email ?? user.UserName;
+            user.DOB = model.DOB;
+            user.NormalizedEmail = model.Email.ToUpper();
+            user.NormalizedUserName = model.Email.ToUpper();
+            user.EmailConfirmed = model.EmailConfirmed;          
+            user.PasswordHash = hasher.HashPassword(user, model.Password);
+
+            await db.SaveChangesAsync();
+            return mapper.Map<ApplicationUserViewModel>(user);
         }
 
 

@@ -113,7 +113,7 @@ namespace Seminar_Oblak.Services.Implemetation
                 return null;
             }
 
-            string folderPath = env.ContentRootPath + @"\Seminar_Oblak\upload\" + fileuploadId;
+            string folderPath = env.ContentRootPath + @"\WebShop\upload\" + fileuploadId;
             Directory.CreateDirectory(folderPath);
             var filePath = Path.Combine(folderPath, file.FileName);
 

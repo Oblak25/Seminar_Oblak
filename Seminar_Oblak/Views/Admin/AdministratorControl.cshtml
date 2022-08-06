@@ -1,23 +1,15 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-<button  class="btn btn-primary btn-lg "  href="@Url.Action("ProductAdministration", "Admin")">Product Administration</button>
-<button type="button" class="btn btn-secondary btn-lg btn-block" >User Administration</button>
-
-<button <a type="button" class="btn btn-secondary btn-lg btn-block" asp-action="ProductAdministration">Product Administration  </a> </button>
-
-<a asp-action="ProductAdministration">Go Back </a>
-
-<a class="btn btn-primary" href="@Url.Action("ProductAdministration", "Admin")">proba managament</a>
+﻿
 
 
 
-<a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductCategoryAdministration", "Admin")"> ProductCategoryAdministration</a>
+<a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductCategoryAdministration", "Admin")"> ProductCategory Administration</a>
 
-<a class="class="btn btn-primary btn-lg btn-block" href="@Url.Action("UserAdministration", "Admin")"> ProductCategoryAdministration</a>
+<a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductAdministration", "Admin")"> Product Administration</a>
 
-<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+<a class="btn btn-primary btn-lg btn-block" href="@Url.Action("UserAdministration", "Admin")"> User Administration</a>
+
+<a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddProduct", "Admin")"> Create A New Product</a>
+
+<a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddProductCategory", "Admin")"> Create A New Category</a>
+
+<a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddUser", "Admin")"> Create A New User</a>

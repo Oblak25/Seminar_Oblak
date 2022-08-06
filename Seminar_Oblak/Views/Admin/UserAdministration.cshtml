@@ -40,23 +40,12 @@
                 <td>@user.Lastname</td>
                 <td>@user.Email</td>
                 <td>@user.EmailConfirmed</td>
-                 <td>Adres</td>
-
-                <td>@foreach (var adress in user.Adress)
-                {
-                    @adress.Country 
-                       @adress.City 
-                       <br />
-                          @adress.Street 
-                             @adress.PostalCode 
-                                @adress.HouseNumbering
-                   @* @Html.DisplayFor(modelItem => adress.City)*@
-                }
-                </td>
+              
+        
 
                 <td>
                     @Html.ActionLink("View","UserDetails","Admin",new {id= user.Id},new {@class = "btn btn-primary"})
-                    @Html.ActionLink("Edit","UpdateCategory","Admin",new {id= user.Id},new {@class = "btn btn-primary"})
+                    @Html.ActionLink("Edit","UpdateUser","Admin",new {id= user.Id},new {@class = "btn btn-primary"})
                     @Html.ActionLink("Delete","DeleteUser","Admin",new {id= user.Id},new {@class = "btn btn-primary"})
                 <td />
             </tr>

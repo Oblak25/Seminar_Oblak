@@ -5,8 +5,8 @@
 }
 
 <p>
-    <a asp-action="Create">Create New</a>
-    <a asp-action="AdministratorControl">Go Back </a>
+  
+    <a asp-action="AdministratorControl">Go Back To Main Admin panel </a>
 </p>
 <table class="table table-striped">
     <thead>
@@ -40,9 +40,7 @@
     </tbody>
 </table>
 
+<a class="btn btn-primary" href="@Url.Action("AddProductCategory", "Admin")">Add A New Category</a>
 
-<a class="btn btn-primary" href="@Url.Action("AddProduct", "Admin")">Dodaj novi proizvod</a>
+<a class="btn btn-primary" href="@Url.Action("ProductAdministration", "Admin")">To Products</a>
 
-
-
-<a class="btn btn-primary" href="@Url.Action("AddProductCategory", "Admin")">Dodaj novu kategoriju</a>
