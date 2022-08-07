@@ -27,8 +27,15 @@ namespace Seminar_Oblak.Mapping
             CreateMap<ApplicationUserViewModel, ApplicationUserUpdateBinding>();
             CreateMap<ApplicationUser, ApplicationUserViewModel>();
             CreateMap<UserBinding, ApplicationUser>()
-                .ForMember(dst => dst.UserName, opts => opts.MapFrom(src => src.Email))
-                .ForMember(dst => dst.EmailConfirmed, opts => opts.MapFrom(src => true));
+                .ForMember(dst => dst.UserName, opts => opts.MapFrom(src => src.Email));
+
+            //dodano
+            CreateMap<ApplicationUserUpdateBinding, ApplicationUserViewModel>();
+            CreateMap<ApplicationUserUpdateBinding, ApplicationUser>();
+            CreateMap<ApplicationUser, ApplicationUserViewModel>();
+            CreateMap<ApplicationUserViewModel, ApplicationUser>();
+            CreateMap<ApplicationUserViewModel, UserBinding>();
+
 
             CreateMap<FileStorage, FileStorageViewModel>();
             CreateMap<FileStorage, FileStorageExpendedViewModel>();

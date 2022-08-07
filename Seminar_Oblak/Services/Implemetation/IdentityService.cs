@@ -34,6 +34,7 @@ namespace Seminar_Oblak.Services.Implemetation
                     UserName = "admin@admin.com",
                     DOB = DateTime.Now.AddYears(-80),
                     PhoneNumber = "+385996666666",
+                    
                   
 
                 }, "Pa$$word321", Roles.Admin).Wait();

@@ -186,10 +186,17 @@ namespace Seminar_Oblak.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //public async Task<IActionResult> AddUser(UserBinding model, string role)
+        //{
+        //    await userService.CreateNewUserAsync(model, "BasicUser");
+        //    return RedirectToAction("UserAdministration");
+        //}
+
         [HttpPost]
         public async Task<IActionResult> AddUser(UserBinding model, string role)
         {
-            await userService.CreateNewUserAsync(model, "BasicUser");
+            await userService.CreateNewUserAsync(model,role);
             return RedirectToAction("UserAdministration");
         }
 
@@ -216,6 +223,8 @@ namespace Seminar_Oblak.Controllers
 
             return RedirectToAction("UserAdministration");
         }
+
+
 
         public async Task<IActionResult> UpdateUser(string id)
         {

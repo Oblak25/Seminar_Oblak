@@ -3,6 +3,7 @@
 @model ProductBinding
 @inject IProductService productService
 
+
 @{
     var productCategory = await productService.GetProductCategorysAsync();
 }

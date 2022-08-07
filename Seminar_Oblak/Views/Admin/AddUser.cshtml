@@ -1,7 +1,9 @@
-﻿@using Seminar_Oblak.Models.Binding
+﻿@using Microsoft.AspNetCore.Identity
+@using Seminar_Oblak.Models.Binding
 @using Seminar_Oblak.Services.Interface;
 @model UserBinding
-
+@inject IUserSevice userSevice
+@inject RoleManager<IdentityRole> roleManager;
 
 @{
 

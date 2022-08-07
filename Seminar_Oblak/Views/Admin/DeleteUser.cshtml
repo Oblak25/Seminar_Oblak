@@ -43,13 +43,10 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Email)
         </dd>
-
-
     </dl>
-
-    <form asp-action="DeleteUser">
+     <form asp-controller="Admin" asp-action="DeleteUser">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Confirm Deletion" class="btn btn-danger" />
-        <a asp-action="UserAdministration" class="btn btn-primary">Back to List</a>
+        <input type="submit" value="Confirm Deletion" class="btn btn-danger" /> |
+        <a asp-controller="Admin" asp-action="UserAdministration">Back to List</a>
     </form>
 </div>
