@@ -23,20 +23,6 @@ namespace Seminar_Oblak.Services.Implemetation
             this.fileStorageService = fileStorageService;
         }
 
-        //public async Task<ProductViewModel> AddProductAsync(ProductBinding model)
-        //{
-        //    var dbo = mapper.Map<Product>(model);
-        //    var productCategory = await db.ProductCategory.FindAsync(model.ProductCategoryId);
-        //    if (productCategory == null)
-        //    {
-        //        return null;
-        //    }
-        //    dbo.ProductCategory = productCategory;
-        //    db.Product.Add(dbo);
-        //    await db.SaveChangesAsync();
-        //    return mapper.Map<ProductViewModel>(dbo);
-        //}
-
         public async Task<ProductViewModel> AddProductAsync(ProductBinding model)
         {
             var productCategory = await db.ProductCategory.FirstOrDefaultAsync(x => x.Id == model.ProductCategoryId);
@@ -109,8 +95,8 @@ namespace Seminar_Oblak.Services.Implemetation
                     product.ProductImgUrl = fileResponse.DownloadUrl;
                 }
             }
-            product.Title = model.Title ?? product.Title;
-            product.Description = model.Description ?? product.Description;
+            product.Title = model.Title;
+            product.Description = model.Description;
             product.Quantity = model.Quantity;
             product.Price = model.Price;
             product.ProductCategory = productCategory;

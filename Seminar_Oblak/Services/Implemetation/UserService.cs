@@ -52,20 +52,6 @@ namespace Seminar_Oblak.Services.Implemetation
             return user;
         }
 
-        //public async Task<ProductViewModel> AddUserAsync(UserBinding model)
-        //{
-        //    var dbo = mapper.Map<Product>(model);
-        //    var productCategory = await db.ProductCategory.FindAsync(model.ProductCategoryId);
-        //    if (productCategory == null)
-        //    {
-        //        return null;
-        //    }
-        //    dbo.ProductCategory = productCategory;
-        //    db.Product.Add(dbo);
-        //    await db.SaveChangesAsync();
-        //    return mapper.Map<ProductViewModel>(dbo);
-        //}
-
         public async Task<List<ApplicationUserViewModel>> GetUsersAsync()
         {
             var dbo = await db.Users                  

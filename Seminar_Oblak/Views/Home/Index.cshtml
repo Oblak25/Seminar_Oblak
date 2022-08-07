@@ -4,7 +4,7 @@
     int counter = 1;
 }
 
- @foreach (var product in Model.OrderBy(x=> Guid.NewGuid()))
+ @*@foreach (var product in Model.OrderBy(x=> Guid.NewGuid()))
         {
 <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="@product.ProductImgUrl" alt="Card image cap">
@@ -14,4 +14,26 @@
     <a href="@Url.Action("Details", "Home",new {id = product.Id})" class="btn btn-primary">Details</a>
   </div>
 </div>
-        }
+        }*@
+
+        <div class="container">
+  <div class="row">
+@foreach (var product in Model.OrderBy(x=> Guid.NewGuid()))
+        {
+ 
+    <div class="col-md-4 mt-4">
+      <div class="card">
+        <div class="card-body">
+           <img class="card-img-top" src="@product.ProductImgUrl" alt="Card image cap" width="10" 
+     height="250">
+         <h5 class="card-title">Product:<br> @product.Title</h5>
+    <p class="card-text">Description:<br> @product.Description</p>
+    <a href="@Url.Action("Details", "Home",new {id = product.Id})" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+    </div>
+   
+}
+
+  </div>
+</div>

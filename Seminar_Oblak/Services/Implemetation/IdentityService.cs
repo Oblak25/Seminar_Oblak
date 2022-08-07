@@ -80,23 +80,16 @@ namespace Seminar_Oblak.Services.Implemetation
         }
 
         public async Task CreateUserAsync(ApplicationUser user, string password, string role)
-        {
-
-            //Prvo provjeri ima li korisnika sa istim emailom u bazi
+        {         
             var find = await userManager.FindByEmailAsync(user.Email);
             if (find != null)
             {
                 return;
             }
-
-
-            user.EmailConfirmed = true;
-            //Izraditi novog korisnika
-            var createdUser = await userManager.CreateAsync(user, password);
-            //Provjeriti jeli korisnik uspješno dodan
+            user.EmailConfirmed = true;     
+            var createdUser = await userManager.CreateAsync(user, password);          
             if (createdUser.Succeeded)
-            {
-                //Dodati korisnika u rolu
+            {             
                 var userAddedToRole = await userManager.AddToRoleAsync(user, role);
                 if (!userAddedToRole.Succeeded)
                 {
