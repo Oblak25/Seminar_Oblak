@@ -4,7 +4,7 @@
     int counter = 1;
 }
 
- @*@foreach (var product in Model.OrderBy(x=> Guid.NewGuid()))
+@*@foreach (var product in Model.OrderBy(x=> Guid.NewGuid()))
         {
 <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="@product.ProductImgUrl" alt="Card image cap">
@@ -16,24 +16,79 @@
 </div>
         }*@
 
-        <div class="container">
-  <div class="row">
-@foreach (var product in Model.OrderBy(x=> Guid.NewGuid()))
+@* <div class="container">
+    <div class="row">
+        @foreach (var product in Model.OrderBy(x => Guid.NewGuid()))
         {
- 
-    <div class="col-md-4 mt-4">
-      <div class="card">
-        <div class="card-body">
-           <img class="card-img-top" src="@product.ProductImgUrl" alt="Card image cap" width="10" 
-     height="250">
-         <h5 class="card-title">Product:<br> @product.Title</h5>
-    <p class="card-text">Description:<br> @product.Description</p>
-    <a href="@Url.Action("Details", "Home",new {id = product.Id})" class="btn btn-primary">Details</a>
-        </div>
-      </div>
-    </div>
-   
-}
 
-  </div>
+            <div class="col-md-4 mt-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="@product.ProductImgUrl" alt="Card image cap" width="10"
+                         height="250">
+                        <h5 class="card-title">Product:<br> @product.Title</h5>
+                        <p class="card-text">Description:<br> @product.Description</p>
+                        <a href="@Url.Action("Details", "Home",new {id = product.Id})" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div> *@
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model.OrderBy(x => Guid.NewGuid()))
+        {
+
+            <div class="col-md-4 mt-4">
+                <div class="card">
+                    <img src="@product.ProductImgUrl" alt="Card image cap" style="width:100%">
+                    <h1>@product.Title</h1>
+                    <p class="price">kn @product.Price</p>
+                    <p> @product.Description</p>
+                    <p><button type="button" onclick="location.href='@Url.Action("Details","Home", new{id=product.Id})'">View</button></p>
+                </div>
+            </div>
+        }
+    </div>
 </div>
+
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+    }
+
+    .price {
+        color: grey;
+        font-size: 22px;
+    }
+
+    .card button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+
+        .card button:hover {
+            opacity: 0.7;
+        }
+
+    img {
+        width: 200px;
+        height: 300px;
+        object-fit: cover;
+    }
+</style>
