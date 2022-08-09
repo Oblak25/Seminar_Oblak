@@ -3,6 +3,7 @@ using Seminar_Oblak.Models.Dbo;
 using Seminar_Oblak.Models.ViewModel;
 using AutoMapper;
 using Seminar_Oblak.Models.Models.Binding;
+using Microsoft.AspNetCore.Identity;
 
 namespace Seminar_Oblak.Mapping
 {
@@ -35,6 +36,13 @@ namespace Seminar_Oblak.Mapping
             CreateMap<ApplicationUser, ApplicationUserViewModel>();
             CreateMap<ApplicationUserViewModel, ApplicationUser>();
             CreateMap<ApplicationUserViewModel, UserBinding>();
+
+           
+                CreateMap<IdentityRole, UserRolesViewModel>();
+            CreateMap<UserAdminBinding, ApplicationUser>();
+           
+            CreateMap<ApplicationUserViewModel, UserAdminUpdateBinding>();
+
 
 
             CreateMap<FileStorage, FileStorageViewModel>();

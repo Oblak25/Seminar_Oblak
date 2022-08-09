@@ -193,10 +193,11 @@ namespace Seminar_Oblak.Controllers
         //    return RedirectToAction("UserAdministration");
         //}
 
+       
         [HttpPost]
-        public async Task<IActionResult> AddUser(UserBinding model, string role)
+        public async Task<IActionResult> AddUser(UserAdminBinding model)
         {
-            await userService.CreateNewUserAsync(model,role);
+            await userService.CreateNewUserAsync(model);
             return RedirectToAction("UserAdministration");
         }
 
@@ -226,6 +227,20 @@ namespace Seminar_Oblak.Controllers
 
 
 
+        //public async Task<IActionResult> UpdateUser(string id)
+        //{
+        //    var user = await userService.GetUserAsync(id);
+        //    var model = mapper.Map<ApplicationUserUpdateBinding>(user);
+        //    return View(model);
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> UpdateUser(UserAdminUpdateBinding model)
+        //{
+        //    var user = await userService.UpdateUserAsync(model);
+        //    return RedirectToAction("UserAdministration");
+        //}
+        [HttpGet]
         public async Task<IActionResult> UpdateUser(string id)
         {
             var user = await userService.GetUserAsync(id);
@@ -233,10 +248,17 @@ namespace Seminar_Oblak.Controllers
             return View(model);
         }
 
+        //[HttpPost]
+        //public async Task<IActionResult> UpdateUser(UserAdminUpdateBinding model)
+        //{
+        //    var user = await userService.UpdateUserAsync(model);
+        //    return RedirectToAction("UserAdministration");
+        //}
+
         [HttpPost]
-        public async Task<IActionResult> UpdateUser(ApplicationUserUpdateBinding model)
+        public async Task<IActionResult> UpdateUser(UserAdminUpdateBinding model)
         {
-            var user = await userService.UpdateUserAsync(model);
+            await userService.UpdateUserAsync(model);
             return RedirectToAction("UserAdministration");
         }
 

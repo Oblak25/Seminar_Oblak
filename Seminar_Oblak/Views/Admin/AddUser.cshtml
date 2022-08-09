@@ -1,17 +1,28 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Seminar_Oblak.Models.Binding
 @using Seminar_Oblak.Services.Interface;
-@model UserBinding
+@model UserAdminBinding
 @inject IUserSevice userSevice
 @inject RoleManager<IdentityRole> roleManager;
 
 @{
-
+      var userRoles = await userSevice.GetUserRoles();
 }
 
-@using (Html.BeginForm())
-{
+ <form asp-action="AddUser">
+            <label asp-for="RoleId" class="control-label"></label>
+            <div class="form-group">
+                <select name="RoleId" class="form-control">
+                    @foreach (var item in userRoles)
+                    {
+                        <option value="@item.Id">
+                            @item.Name
+                        </option>
+                    }
 
+
+                </select>
+            </div>
     <div class="form-group">
         @Html.LabelFor(x=>x.Firstname)
         @Html.TextBoxFor(x=> x.Firstname, new {@class = "form-control",  placeholder=" Enter Product Name " })
@@ -34,19 +45,15 @@
         <input asp-for="DOB" class="form-control" />
         <span asp-validation-for="DOB" class="text-danger"></span>
     </div>
-    <div class="form-group form-check">
-        <label class="form-check-label">
-            <input class="form-check-input" asp-for="EmailConfirmed" /> @Html.DisplayNameFor(model => model.EmailConfirmed)
-        </label>
-    </div>
+    
 
 
 
     <input type="submit" class="btn btn-primary mt-5" value="Apply">
 
+        </form>
 
 
-}
 
 <a class="btn btn-danger" href="@Url.Action("UserAdministration", "Admin")">Abort</a>
 

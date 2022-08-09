@@ -1,6 +1,4 @@
-﻿
-
-@* <div class="btn-group-vertical">
+﻿@* <div class="btn-group-vertical">
     <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductCategoryAdministration", "Admin")"> ProductCategory Administration</a>
 
     <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductAdministration", "Admin")"> Product Administration</a>
@@ -15,7 +13,7 @@
 
 </div>*@
 
- @*<div class="row">
+@* <div class="row">
     <div class="col-md-4">
        <div class="form-group">
             <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductCategoryAdministration", "Admin")"> ProductCategory Administration</a>
@@ -38,180 +36,41 @@
     </div>
 </div>*@
 
-              <div class="button_grp style_1">
-          <button class="iocn_btn"><span><img src="https://www.lowe-electrical-solutions.co.uk/assets/images/lock.png" alt="lock"/></span>Login</button>
-          <button class="simpl_btn">Login</button>
-        </div>
-<div class="button_grp style_2">
-          <button class="iocn_btn"><span><img src="https://www.lowe-electrical-solutions.co.uk/assets/images/lock.png" alt="lock"/></span>Login</button>
-          <button class="simpl_btn">Login</button>
-        </div>
-<div class="button_grp style_3">
-          <button class="iocn_btn"><span><img src="https://www.lowe-electrical-solutions.co.uk/assets/images/lock.png" alt="lock"/></span>Login</button>
-          <button class="simpl_btn">Login</button>
-        </div>
-<div class="button_grp style_4">
-          <button class="iocn_btn"><span><img src="https://www.lowe-electrical-solutions.co.uk/assets/images/lock.png" alt="lock"/></span>Login</button>
-          <button class="simpl_btn">Login</button>
-        </div>
-<div class="button_grp style_5">
-          <button class="iocn_btn"><span><img src="https://www.lowe-electrical-solutions.co.uk/assets/images/lock.png" alt="lock"/></span>Login</button>  
-          <button class="simpl_btn">Login</button>         
-        </div>
+<ul>
+    <li>   <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductCategoryAdministration", "Admin")"> ProductCategory Administration</a></li>
+    <li>   <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductAdministration", "Admin")"> Product Administration</a></li>
+    <li>    <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("UserAdministration", "Admin")"> User Administration</a></li>
+    <li>    <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddProduct", "Admin")"> Create A New Product</a></li>
 
-<style>
-   
-img{
-  max-width:26px;
+    <li>       <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddProductCategory", "Admin")"> Create A New Category</a></li>
+    <li>   <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddUser", "Admin")"> Create A New User</a></li>
+</ul>
+
+    <style> 
+      
+
+ul {
+    padding: 0;
+    list-style-type: none;
 }
-      .button_grp {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      button {
-        cursor: pointer;
-        width: 150px;
-        height: 45px;
-        margin: 20px;
-        position: relative;
-        font-size: 18px;
-        padding: 8px 10px;
-        font-weight: 700;
-        transition: 0.5s;
-      }
-      /*style 1*/
-      .style_1 button {
-        background: #469eca;
-        color: #fff;
-        border: 0px;
-        text-align: center;
-        border-radius: 8px 0px;
-        box-shadow: 1px 1px #2178a4, 2px 2px #2178a4, 3px 3px #2178a4;
-      }
-      .style_1 button:hover {
-        background: #2178a4;
-        text-align: center;
-        border-radius: 0px 8px;
-        box-shadow: 1px 1px #469eca, 2px 2px #469eca, 3px 3px #469eca;
-        transition: 0.5s;
-      }
-      .style_1 span {
-        position: absolute;
-        left: 0;
-        top: 0;
-        padding: 8px 10px;
-        border-right: 1px solid #2178a4;        
-      }
-      .style_1 .iocn_btn {
-        padding-left: 50px;
-      }
-      /*style 2*/
-      .style_2 button {
-        background-image: linear-gradient(to top, #176287, #469eca);
-        color: #fff;
-        border: 0px;
-        text-align: center;
-        border-radius: 25px;
-      }
-      .style_2 button:hover {
-        background-image: linear-gradient(to top, #469eca, #176287);
-        transition: 0.5s;
-      }
-      .style_2 span {
-        position: absolute;
-        left: 0;
-        top: 0;
-        padding: 9px 10px 6px 12px;
-        border-right: 1px solid #fff;
-      }
-      .style_2 .iocn_btn {
-        padding-left: 50px;
-      }
-      /*style 3*/
-      .style_3 button {
-        background-image: linear-gradient(to top, #176287, #469eca);
-        color: #fff;
-        border: 0px;
-        text-align: center;
-        border-radius: 25px;
-        border: 2px solid #fff;
-      }
-      .style_3 button:hover {
-        background-image: linear-gradient(to top, #469eca, #176287);
-        transition: 0.5s;
-      }
-      .style_3 span {
-        position: absolute;
-        left: 5px;
-        top: 4px;
-        padding: 5px;
-        background-color: white;
-        border-radius: 100%;
-        width: 23px;
-        height: 23px;
-      }
-      .style_3 span img {
-        width: 19px;
-      }
-      .style_3 .iocn_btn {
-        padding-left: 50px;
-      }
-      /*style 4*/
-      .style_4 button {
-        background: #000;
-        color: #e29460;
-        border: 0px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .style_4 button img {
-        margin-right: 10px;
-      }
-      .style_4 button:before {
-        content: '';
-        position: absolute;
-        width: 98%;
-        height: 95%;
-        top: 5px;
-        left: 5px;
-        border: 2px solid #000;
-        transition: 0.5s;
-      }
-      .style_4 button:hover::before {
-        top: -5px;
-        left: -5px;
-        transition: 0.5s;
-      }
-      /*style 5*/
-      .style_5 button {
-        background: #000;
-        color: #e29460;
-        border: 0px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 25px;
-        box-shadow: 6px 0px 0px rgba(0, 0, 0, 0.4), -6px 0px 0px rgba(0, 0, 0, 0.4);
-      }
-      .style_5 button img {
-        margin-right: 10px;
-      }
-      .style_5 span {
-        position: absolute;
-        right: 0;
-        top: 0;
-        padding: 9px 10px 6px 12px;
-        border-left: 1px solid #333;
-      }
-      .style_5 button:hover{
-          box-shadow: 6px 0px 0px rgb(0, 0, 0), -6px 0px 0px rgb(0, 0, 0);
-        background: rgba(0, 0, 0, 0.41);
-      }
-      .style_5 .iocn_btn {
-        padding-right: 50px;
-      }
-</style>
+nav {
+  position:fixed;
+  width:100%;
+}
+
+li {
+    font-size: 25px;
+    width: 8em;
+    height: 2em;
+    text-align: center;
+    line-height: 2em;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    position: relative;
+    transition: 0.5s;
+    margin: 0.8em;
+}
+
+
+
+    </style>

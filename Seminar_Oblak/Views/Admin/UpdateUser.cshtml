@@ -1,8 +1,10 @@
 ﻿@model ApplicationUserUpdateBinding
 @using Seminar_Oblak.Models.Models.Binding
+@using Seminar_Oblak.Models.ViewModel
 @using Seminar_Oblak.Services.Interface
 @inject IUserSevice UserSevice
 @{
+      var userRoles = await UserSevice.GetUserRoles();
 }
 
 <h1>Update user</h1>
@@ -34,6 +36,25 @@
                 <label asp-for="Password" class="control-label">New password</label>
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <select name="RoleId" class="form-control">
+                    @foreach (var item in userRoles)
+                    {
+                        if (item.Name == Model.Role)
+                        {
+                            <option selected value="@item.Id">
+                                @item.Name
+                            </option>
+                        }
+                        else
+                        {
+                            <option value="@item.Id">
+                                @item.Name
+                            </option>
+                        }
+                    }
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="DOB" class="control-label"></label>

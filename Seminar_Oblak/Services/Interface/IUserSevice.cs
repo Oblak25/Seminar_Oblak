@@ -7,12 +7,17 @@ namespace Seminar_Oblak.Services.Interface
 {
     public interface IUserSevice
     {
-        Task<ApplicationUser?> CreateUserAsync(UserBinding model, string role);
+        Task<ApplicationUser?> CreateUserAsync(UserAdminBinding model);
         Task<List<ApplicationUserViewModel>> GetUsersAsync();
-        Task<ApplicationUser> CreateNewUserAsync(UserBinding model, string role);
+        Task<ApplicationUser> CreateNewUserAsync(UserAdminBinding model);
         Task<ApplicationUserViewModel> GetUserAsync(string id);
+        Task<ApplicationUserViewModel> UpdateUserAsync(UserAdminUpdateBinding model);
         Task DeleteUserAsync(ApplicationUser model);
-        Task<ApplicationUserViewModel> UpdateUserAsync(ApplicationUserUpdateBinding model);
+        Task<List<UserRolesViewModel>> GetUserRoles();
+        Task<string> GetUserRole(string id);
+        Task<ApplicationUser?> CreateUserAsync(UserBinding model, string role);
+
+
 
 
     }

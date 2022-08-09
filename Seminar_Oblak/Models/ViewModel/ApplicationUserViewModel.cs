@@ -6,7 +6,9 @@ namespace Seminar_Oblak.Models.ViewModel
     public class ApplicationUserViewModel : ApplicationUser
     {
         public string? Id { get; set; }
-       
+
+        public string Role { get; set; }
+
         //public Roles Roles { get; set; }
     }
 }
