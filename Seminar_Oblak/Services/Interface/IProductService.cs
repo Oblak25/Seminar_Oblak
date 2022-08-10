@@ -17,5 +17,7 @@ namespace Seminar_Oblak.Services.Interface
         Task DeleteProductAsync(Product model);
         Task DeleteProductCategoryAsync(ProductCategory model);
 
+        Task<List<ProductViewModel>> GetCategoryProductsAsync(int productCategoryId);
+
     }
 }

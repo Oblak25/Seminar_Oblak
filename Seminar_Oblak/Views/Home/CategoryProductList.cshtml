@@ -1,0 +1,47 @@
+﻿@using Seminar_Oblak.Models.ViewModel
+@model CategoryProductListViewModel
+
+@using (Html.BeginForm())
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Image</th>
+                <th scope="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem=> item.ProductCategory.Title)
+                    </td>
+                    <td>
+                        <img style="width:100px;
+                                    height:100px;
+                                    object-fit:cover;"
+                             src="@item.ProductImgUrl">
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details", "Home",new {id = item.Id})" class="btn btn-success">Details</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="@Url.Action("Index", "Home")">Back to homepage</a>
+
+}

@@ -5,7 +5,9 @@
 }
 
 @* Tu sam uzeo da prikaze 12 producta, jer grid koji sam napravio mi je puno lijepsi sa 12 (naspram 10) na indexu,
-ako je bas potrebno mogu staviti da uzme 10  :( *@
+ako je bas potrebno mogu staviti da uzme 10  :(
+e btw, napravio sam malo typo-e u descriptionu od jednih od voca, a neda mi se bas micat migracija i ponovno pravit zbog toga
+, stoga sry :D *@
 <div class="container-fluid">
     <div class="row">
         @foreach (var product in Model.OrderBy(x => Guid.NewGuid()).Take(12))

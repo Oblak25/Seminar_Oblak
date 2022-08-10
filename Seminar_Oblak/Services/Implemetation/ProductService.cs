@@ -128,5 +128,15 @@ namespace Seminar_Oblak.Services.Implemetation
             await db.SaveChangesAsync();
 
         }
+
+        public async Task<List<ProductViewModel>> GetCategoryProductsAsync(int productCategoryId)
+        {
+            var products = await db.Product
+                .Include(x => x.ProductCategory)
+                .Where(x => x.ProductCategory.Id == productCategoryId)
+                .ToListAsync();
+
+            return products.Select(x => mapper.Map<ProductViewModel>(x)).ToList();
+        }
     }
 }

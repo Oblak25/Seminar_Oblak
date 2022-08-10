@@ -75,14 +75,6 @@ namespace Seminar_Oblak.Services.Implemetation
             return mapper.Map<ApplicationUserViewModel>(user);
         }
 
-        //public async Task<List<ApplicationUserViewModel>> GetUsersAsync()
-        //{
-        //    var dbo = await db.Users
-        //        .ToListAsync();
-        //    return dbo.Select(x => mapper.Map<ApplicationUserViewModel>(x)).ToList();
-
-        //}
-
         public async Task<List<ApplicationUserViewModel>> GetUsersAsync()
         {
             var dbo = await db.Users
@@ -92,27 +84,6 @@ namespace Seminar_Oblak.Services.Implemetation
             return response;
 
         }
-
-
-        //public async Task<ApplicationUser> CreateNewUserAsync(UserBinding model, string role)
-        //{
-        //    var findUserByEmail = await userManager.FindByEmailAsync(model.Email);
-        //    if (findUserByEmail != null)
-        //    {
-        //        throw new Exception("ASccount Already Exists");
-        //    }
-        //    var user = mapper.Map<ApplicationUser>(model);
-        //    var createUser = await userManager.CreateAsync(user, model.Password);
-        //    if (!createUser.Succeeded) return user;
-
-        //    var assignRole = await userManager.AddToRoleAsync(user, role);
-        //    if (!assignRole.Succeeded)
-        //    {
-        //        throw new Exception("Role Error ");
-        //    }
-
-        //    return user;
-        //}
 
         public async Task<ApplicationUser> CreateNewUserAsync(UserAdminBinding model)
         {
@@ -147,45 +118,13 @@ namespace Seminar_Oblak.Services.Implemetation
             return mapper.Map<ApplicationUserViewModel>(user);
         }
 
-        //public async Task<ApplicationUserViewModel> GetUserAsync(string id)
-        //{
-        //    var user = await db.ApplicationUser
-        //        .FirstOrDefaultAsync(x => x.Id == id);
-        //    return mapper.Map<ApplicationUserViewModel>(user);
-        //}
-
         public async Task<ApplicationUserViewModel> GetUserAsync(string id)
         {
             var user = await db.ApplicationUser
                 .FirstOrDefaultAsync(x => x.Id == id);
             return mapper.Map<ApplicationUserViewModel>(user);
         }
-
-        //public async Task<ApplicationUserViewModel> UpdateUserAsync(UserAdminUpdateBinding model)
-        //{
-        //    var user = await db.ApplicationUser.FirstOrDefaultAsync(x => x.Id == model.Id);
-        //    var hasher = new PasswordHasher<ApplicationUser?>();
-        //    var role = await db.Roles.FindAsync(model.RoleId);
-
-        //    if (user == null || role == null)
-        //    {
-        //        return null;
-        //    }
-        //    await DeleteAllUserRoles(user);
-        //    await userManager.AddToRoleAsync(user, role.Name);
-
-        //    user.Firstname = model.Firstname;
-        //    user.Lastname = model.Lastname;
-        //    user.Email = model.Email;
-        //    user.UserName = model.Email;
-        //    user.DOB = model.DOB;
-        //    user.NormalizedEmail = model.Email.ToUpper();
-        //    user.NormalizedUserName = model.Email.ToUpper();
-        //    user.PasswordHash = hasher.HashPassword(user, model.Password);
-
-        //    var response = mapper.Map<ApplicationUserViewModel>(user);
-        //    return response;
-        //}
+     
 
         public async Task<ApplicationUserViewModel> UpdateUserAsync(UserAdminUpdateBinding model)
         {

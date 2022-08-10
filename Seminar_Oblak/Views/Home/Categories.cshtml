@@ -17,6 +17,7 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>Details</th>
+                 <th>Ctg Products</th>
             
         </tr>
     </thead>
@@ -30,8 +31,12 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>         
             <td>
-                <a asp-action="CategoryDetails" class="btn btn-success" asp-route-id="@item.Id">View</a>                                
-            </td>            
+                <a asp-action="CategoryDetails" class="btn btn-success" asp-route-id="@item.Id">View</a> 
+              
+            </td>        
+            <td> 
+                @Html.ActionLink("Products","CategoryProductList","Home",new {id= item.Id},new {@class = "btn btn-success"})
+           </td>
         </tr>
 }
     </tbody>

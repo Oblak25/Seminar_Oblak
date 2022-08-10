@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Seminar_Oblak.Models;
+using Seminar_Oblak.Models.ViewModel;
 using Seminar_Oblak.Services.Interface;
 using System.Diagnostics;
 
@@ -41,6 +42,17 @@ namespace Seminar_Oblak.Controllers
         {
             var product = await productService.GetProductCategoryAsync(id);
             return View(product);
+        }
+
+        public async Task<IActionResult> CategoryProductList(int id)
+        {
+            ViewBag.ProductCategoryId = id;
+            var model = new CategoryProductListViewModel
+            {
+                Products = await productService.GetCategoryProductsAsync(id),
+                ProductToCategoryId = id
+            };
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
