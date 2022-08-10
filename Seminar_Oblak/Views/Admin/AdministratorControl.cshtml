@@ -1,76 +1,103 @@
-﻿@* <div class="btn-group-vertical">
-    <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductCategoryAdministration", "Admin")"> ProductCategory Administration</a>
+﻿ <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
 
-    <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductAdministration", "Admin")"> Product Administration</a>
 
-    <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("UserAdministration", "Admin")"> User Administration</a>
 
-    <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddProduct", "Admin")"> Create A New Product</a>
+   <h1>Main Administrator Panel</h1>
+<p>Welcome to the panel, click  on a option you whish  to go to</p>
+<div class="frame">
+    <button class="custom-btn btn-5" type="button" onclick="location.href='@Url.Action("ProductCategoryAdministration","Admin")'">Categories</button>
+    <button class="custom-btn btn-5" type="button" onclick="location.href='@Url.Action("ProductAdministration","Admin")'">Producs</button>
+    <button class="custom-btn btn-5" type="button" onclick="location.href='@Url.Action("UserAdministration","Admin")'">Users</button>
+    <button class="custom-btn btn-5" type="button" onclick="location.href='@Url.Action("AddProduct","Admin")'">Add Product</button>
+    <button class="custom-btn btn-5" type="button" onclick="location.href='@Url.Action("AddProductCategory","Admin")'">Add Vategory</button>
+    <button class="custom-btn btn-5" type="button" onclick="location.href='@Url.Action("AddUser","Admin")'">Add User</button>
+    <p style="font-family: Andale Mono, monospace;"> NEMOJTE_ME_SRUSIT_NA_USMENOM_PLS.XD</p>
+   </div>
+        
+        
+        
+        
+        <style> 
 
-    <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddProductCategory", "Admin")"> Create A New Category</a>
-
-    <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddUser", "Admin")"> Create A New User</a>
-
-</div>*@
-
-@* <div class="row">
-    <div class="col-md-4">
-       <div class="form-group">
-            <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductCategoryAdministration", "Admin")"> ProductCategory Administration</a>
-        </div>
-        <div class="form-group">
-               <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductAdministration", "Admin")"> Product Administration</a>
-        </div>
-        <div class="form-group">
-             <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("UserAdministration", "Admin")"> User Administration</a>
-        </div>
-        <div class="form-group">
-              <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddProduct", "Admin")"> Create A New Product</a>
-        </div>
-        <div class="form-group">
-              <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddProductCategory", "Admin")"> Create A New Category</a>
-        </div>
-        <div class="form-group">
-              <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddUser", "Admin")"> Create A New User</a>
-        </div>
-    </div>
-</div>*@
-
-<ul>
-    <li>   <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductCategoryAdministration", "Admin")"> ProductCategory Administration</a></li>
-    <li>   <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("ProductAdministration", "Admin")"> Product Administration</a></li>
-    <li>    <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("UserAdministration", "Admin")"> User Administration</a></li>
-    <li>    <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddProduct", "Admin")"> Create A New Product</a></li>
-
-    <li>       <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddProductCategory", "Admin")"> Create A New Category</a></li>
-    <li>   <a class="btn btn-primary btn-lg btn-block" href="@Url.Action("AddUser", "Admin")"> Create A New User</a></li>
-</ul>
-
-    <style> 
-      
-
-ul {
-    padding: 0;
-    list-style-type: none;
+        body {
+  background: #e0e5ec;
 }
-nav {
-  position:fixed;
+h1 {
+  position: relative;
+  text-align: center;
+  color: #353535;
+  font-size: 50px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  font-size: 18px;
+  color: #676767;
+}
+.frame {
+  width: 90%;
+  margin: 40px auto;
+  text-align: center;
+}
+button {
+  margin: 20px;
+  outline: none;
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  padding: 10px 25px;
+  border: 2px solid #000;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+.btn-5 {
+  background: #000;
+  color: #fff;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-5:hover {
+  background: transparent;
+  color: #000;
+   box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+}
+.btn-5:before,
+.btn-5:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #000;
+  transition:400ms ease all;
+}
+.btn-5:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn-5:hover:before,
+.btn-5:hover:after{
   width:100%;
+  transition:800ms ease all;
 }
 
-li {
-    font-size: 25px;
-    width: 8em;
-    height: 2em;
-    text-align: center;
-    line-height: 2em;
-    font-family: sans-serif;
-    text-transform: capitalize;
-    position: relative;
-    transition: 0.5s;
-    margin: 0.8em;
-}
-
-
-
+    
     </style>

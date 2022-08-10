@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Seminar_Oblak.Models.ViewModel.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>All Products</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+              <th scope="col">Category</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+              Image
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.ProductCategory.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price) €
+            </td>
+            <td>
+                 <img style="width:100px;
+        height:100px;
+        object-fit:cover;" src="@item.ProductImgUrl">
+            </td>
+            <td>
+                  <a asp-action="Details" class="btn btn-success" asp-route-id="@item.Id">View</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

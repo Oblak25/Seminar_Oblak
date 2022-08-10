@@ -18,6 +18,7 @@
             <th scope="col">Price</th>
             <th scope="col">Quantity</th>
             <th scope="col">Function</th>
+             <th scope="col">Product Category</th>
 
         </tr>
     </thead>
@@ -29,8 +30,9 @@
                 <th scope="row">@counter</th>
                 <td>@product.Title</td>
                 <td>@product.Description</td>
-                <td>@product.Price</td>
+                <td>@product.Price €</td>
                 <td>@product.Quantity</td>
+                  <td>@product.ProductCategory.Title</td>
                 <td>
                     @Html.ActionLink("View","Details","Admin",new {id= product.Id},new {@class = "btn btn-primary"})
                     @Html.ActionLink("Edit","UpdateProduct","Admin",new {id= product.Id},new {@class = "btn btn-primary"})

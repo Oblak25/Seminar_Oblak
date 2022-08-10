@@ -4,50 +4,18 @@
     int counter = 1;
 }
 
-@*@foreach (var product in Model.OrderBy(x=> Guid.NewGuid()))
-        {
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="@product.ProductImgUrl" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Product: @product.Title</h5>
-    <p class="card-text">Description: @product.Description</p>
-    <a href="@Url.Action("Details", "Home",new {id = product.Id})" class="btn btn-primary">Details</a>
-  </div>
-</div>
-        }*@
-
-@* <div class="container">
+@* Tu sam uzeo da prikaze 12 producta, jer grid koji sam napravio mi je puno lijepsi sa 12 (naspram 10) na indexu,
+ako je bas potrebno mogu staviti da uzme 10  :( *@
+<div class="container-fluid">
     <div class="row">
-        @foreach (var product in Model.OrderBy(x => Guid.NewGuid()))
+        @foreach (var product in Model.OrderBy(x => Guid.NewGuid()).Take(12))
         {
 
-            <div class="col-md-4 mt-4">
-                <div class="card">
-                    <div class="card-body">
-                        <img class="card-img-top" src="@product.ProductImgUrl" alt="Card image cap" width="10"
-                         height="250">
-                        <h5 class="card-title">Product:<br> @product.Title</h5>
-                        <p class="card-text">Description:<br> @product.Description</p>
-                        <a href="@Url.Action("Details", "Home",new {id = product.Id})" class="btn btn-primary">Details</a>
-                    </div>
-                </div>
-            </div>
-
-        }
-    </div>
-</div> *@
-
-
-<div class="container">
-    <div class="row">
-        @foreach (var product in Model.OrderBy(x => Guid.NewGuid()))
-        {
-
-            <div class="col-md-4 mt-4">
+            <div class="col-md-3 mt-3">
                 <div class="card">
                     <img src="@product.ProductImgUrl" alt="Card image cap" style="width:100%">
                     <h1>@product.Title</h1>
-                    <p class="price">kn @product.Price</p>
+                    <p class="price">€ @product.Price</p>
                     <p> @product.Description</p>
                     <p><button type="button" onclick="location.href='@Url.Action("Details","Home", new{id=product.Id})'">View</button></p>
                 </div>
@@ -57,12 +25,24 @@
 </div>
 
 <style>
+    h1{
+         max-height: 43px;
+        overflow:hidden;
+    }
+
+    p{
+       height: 53px;
+        max-height: 60px;
+        overflow:auto;
+    }
     .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         max-width: 300px;
         margin: auto;
         text-align: center;
         font-family: arial;
+
+
     }
 
     .price {
@@ -80,6 +60,7 @@
         cursor: pointer;
         width: 100%;
         font-size: 18px;
+
     }
 
         .card button:hover {

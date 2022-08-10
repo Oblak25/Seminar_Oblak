@@ -11,7 +11,6 @@
 
 <form action="/Admin/AddProduct" method="post" enctype="multipart/form-data">
 
-
     <div class="form-group">
          <label asp-for="ProductCategoryId" class="control-label">Select Category</label>
         <select name="ProductCategoryId" class="form-select" aria-label="Default select example">
@@ -21,10 +20,6 @@
             }
         </select>
     </div>
-
-
-
-
     <div class="form-group">
         @Html.LabelFor(x=>x.Title)
         @Html.TextBoxFor(x=> x.Title, new {@class = "form-control", Required = true, placeholder=" Enter Product Name " })

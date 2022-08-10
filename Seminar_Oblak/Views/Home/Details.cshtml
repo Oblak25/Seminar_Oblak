@@ -32,7 +32,7 @@
             @Html.DisplayNameFor(model => model.Price)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.Price) €
         </dd>
         <dt class="col-sm-2">
                 Category
@@ -41,13 +41,18 @@
             @Html.DisplayFor(model => model.ProductCategory.Title)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductImgUrl)
+            Image
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductImgUrl)
+            <img style="width:200px;
+        height:200px;
+        object-fit:cover; float:left" src="@Model.ProductImgUrl">
         </dd>
     </dl>
 </div>
 <div>   
   <a class="btn btn-primary" href="@Url.Action("Index", "Home")">Back To Home Page</a>
+  <a class="btn btn-primary" href="@Url.Action("Products", "Home")">Back To Products</a>
 </div>
+
+

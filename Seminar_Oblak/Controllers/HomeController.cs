@@ -14,6 +14,12 @@ namespace Seminar_Oblak.Controllers
             this.productService = productService;
         }
 
+        public async Task<IActionResult> Products()
+        {
+            var products = await productService.GetProductsAsync();
+            return View(products);
+        }
+
         public IActionResult Index()
         {
             return View(productService.GetProductsAsync().Result);
