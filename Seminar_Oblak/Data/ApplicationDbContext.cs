@@ -150,7 +150,7 @@ namespace Seminar_Oblak.Data
                {
                    Id = 11,
                    Title = "Mibola",
-                   Description = "Extremely dangeour, fruit have red blood color and can squirt you to death.",
+                   Description = "Extremely dangerous, fruit has red blood color and can squirt you to death.",
                    ProductCategoryId = 3,
                    Quantity = 20,
                    Price = 100,
@@ -170,7 +170,7 @@ namespace Seminar_Oblak.Data
                {
                    Id = 13,
                    Title = "Uriac",
-                   Description = "Grown by the Klinorian people.As soon as the plant grow to 20cm it starts shooting chemicals at whomever comes close.",
+                   Description = "Grown by the Klinorian people.As soon as the plant grows to 20cm it starts shooting chemicals at whomever comes close.",
                    ProductCategoryId = 3,
                    Quantity = 55,
                    Price = 200,
@@ -180,7 +180,7 @@ namespace Seminar_Oblak.Data
                {
                    Id = 14,
                    Title = "Dessert Mangosteen",
-                   Description = "Grown near black holes. The extreme gravity gives this fruit te tasty juice being buy it for.",
+                   Description = "Grown near black holes. The extreme gravity gives this fruit its tasty juice, hence the reason for buying it.",
                    ProductCategoryId = 3,
                    Quantity = 120,
                    Price = 400,
@@ -190,7 +190,7 @@ namespace Seminar_Oblak.Data
                {
                    Id = 15,
                    Title = "Ummeape",
-                   Description = "The most rare vegetable in the galaxy. Is grown on magnetars and the legend is that this fruit will give you wings",
+                   Description = "The most rare vegetable in the galaxy. It is grown on magnetars and the legend is that this fruit will give you wings",
                    ProductCategoryId = 3,
                    Quantity = 10,
                    Price = 800,

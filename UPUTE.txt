@@ -1,0 +1,2 @@
+Za svu dokumentaciju o projektu pristupite README.md datoteci.
+Otvorite ju sa "open with" i oznacite notepad.

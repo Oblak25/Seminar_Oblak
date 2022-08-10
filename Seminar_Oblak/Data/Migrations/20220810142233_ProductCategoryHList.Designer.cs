@@ -12,8 +12,8 @@ using Seminar_Oblak.Data;
 namespace Seminar_Oblak.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220809174522_ProductListAddition")]
-    partial class ProductListAddition
+    [Migration("20220810142233_ProductCategoryHList")]
+    partial class ProductCategoryHList
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -415,7 +415,7 @@ namespace Seminar_Oblak.Data.Migrations
                         {
                             Id = 11,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Extremely dangeour, fruit have red blood color and can squirt you to death.",
+                            Description = "Extremely dangerous, fruit has red blood color and can squirt you to death.",
                             Price = 100m,
                             ProductCategoryId = 3,
                             ProductImgUrl = "https://i.pinimg.com/originals/6c/e8/50/6ce85072cd4b7e62d3904eec258b3aae.jpg",
@@ -437,7 +437,7 @@ namespace Seminar_Oblak.Data.Migrations
                         {
                             Id = 13,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Grown by the Klinorian people.As soon as the plant grow to 20cm it starts shooting chemicals at whomever comes close.",
+                            Description = "Grown by the Klinorian people.As soon as the plant grows to 20cm it starts shooting chemicals at whomever comes close.",
                             Price = 200m,
                             ProductCategoryId = 3,
                             ProductImgUrl = "https://i.pinimg.com/736x/b4/29/e7/b429e708c40a1fa66109bc092419cf10--art-in-nature-passion-flower.jpg",
@@ -448,7 +448,7 @@ namespace Seminar_Oblak.Data.Migrations
                         {
                             Id = 14,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Grown near black holes. The extreme gravity gives this fruit te tasty juice being buy it for.",
+                            Description = "Grown near black holes. The extreme gravity gives this fruit its tasty juice, hence the reason for buying it.",
                             Price = 400m,
                             ProductCategoryId = 3,
                             ProductImgUrl = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/345237f3-7d6b-418e-81b6-09202746aea0/d864ut1-39a83796-c716-4cfd-9098-4fc68682b664.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzM0NTIzN2YzLTdkNmItNDE4ZS04MWI2LTA5MjAyNzQ2YWVhMFwvZDg2NHV0MS0zOWE4Mzc5Ni1jNzE2LTRjZmQtOTA5OC00ZmM2ODY4MmI2NjQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.uSzOcMsG71KI3fq7FwLfX84CRZ_vtqUJrO0Hp2EE7Tg",
@@ -459,7 +459,7 @@ namespace Seminar_Oblak.Data.Migrations
                         {
                             Id = 15,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "The most rare vegetable in the galaxy. Is grown on magnetars and the legend is that this fruit will give you wings",
+                            Description = "The most rare vegetable in the galaxy. It is grown on magnetars and the legend is that this fruit will give you wings",
                             Price = 800m,
                             ProductCategoryId = 3,
                             ProductImgUrl = "https://c8.alamy.com/comp/J1KGNH/3d-rendering-of-a-science-fiction-alien-plant-isolated-on-white-background-J1KGNH.jpg",
